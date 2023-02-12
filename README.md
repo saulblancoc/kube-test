@@ -45,3 +45,4 @@
     kubectl create -f service.yaml
     kubectl apply -f ingress.yaml
     ```
+    Remember you will need to change the image to the one with your application on the deployment.yaml and the host you want your ingress to listen to on the files.

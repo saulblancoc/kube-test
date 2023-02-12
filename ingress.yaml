@@ -1,0 +1,15 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: hostname-route
+spec:
+  http:
+  - name: rule1
+    match:
+      hosts:
+      - local.hostname-site.org
+      paths:
+      - /*
+    backends:
+       - serviceName: hostname-site
+         servicePort: 80

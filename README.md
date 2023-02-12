@@ -33,5 +33,15 @@
       helm install apisix apisix/apisix   --set gateway.type=NodePort   --set ingress-controller.enabled=true   --create-namespace   --namespace ingress-apisix   --set ingress-controller.config.apisix.serviceNamespace=ingress-apisix   --set ingress-controller.config.apisix.adminAPIVersion=v3
       ```
   - Build the image of the app you want to run.
-    - You will need the application and a Dockerfile. In my case, I have gone with a very simple php that prints the date and hostname of its host and then saved it as index.php.
-      
+    - In my case, I have gone with a very simple php that prints the date and hostname of its host and then saved it as index.php as my application.
+    - After that, we take the Dockerfile and build the image.  
+    ```
+    docker build -t hostname-site:latest .
+    ```
+  - Now all we need to do is start kubernetes and set up our environment.
+    ```
+    minikube start
+    kubectl create -f deployment.yaml
+    kubectl create -f service.yaml
+    kubectl apply -f ingress.yaml
+    ```

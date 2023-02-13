@@ -1,7 +1,6 @@
 # How to get your first app on kubernetes
 
-## Steps are:
-  - Set up your kubernetes dependencies.  
+## Set up kubernetes and dependencies:  
     - Install docker engine from Ubuntu's repos.  
       ```
       sudo apt install docker.io
@@ -38,6 +37,7 @@
     ```
     docker build -t hostname-site:latest .
     ```
+## Run your app.
   - Now all we need to do is start kubernetes and set up our environment.
     ```
     minikube start
